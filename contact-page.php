@@ -216,10 +216,30 @@ $vits = get_stylesheet_directory_uri();
     .message { margin-top: 16px; height: 174px; padding: 16px 20px; resize: none; }
     .form-actions { display: flex; justify-content: flex-end; margin-top: 20px; }
     .submit {
+      position: relative;
       border: none; background: var(--navy); color: #fff;
       border-radius: 999px; height: 44px; padding: 0 28px;
       letter-spacing: 1.6px; font-size: 12px; font-weight: 600; text-transform: uppercase; cursor: pointer;
     }
+    form.is-sending .submit {
+      color: transparent;
+      cursor: progress;
+      pointer-events: none;
+    }
+    form.is-sending .submit::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      margin: -8px 0 0 -8px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: vits-spin .7s linear infinite;
+    }
+    @keyframes vits-spin { to { transform: rotate(360deg); } }
 
     /* faded until the visitor types something */
     .form-label, .submit { opacity: .5; transition: opacity .25s ease; }
@@ -368,12 +388,15 @@ window.VITS_AJAX_NONCE = <?php echo wp_json_encode( wp_create_nonce( 'vits_enqui
       burger.setAttribute("aria-expanded", open);
     });
     const form = document.getElementById("contactForm");
+    const submitBtn = form.querySelector(".submit");
+    let sending = false;
     form.addEventListener("input", () => {
       const typed = [...form.elements].some((el) => el.value && el.value.trim());
       form.classList.toggle("has-input", typed);
     });
     form.addEventListener("submit", (event) => {
       event.preventDefault();
+      if (sending) return;
       const name = form.name.value.trim();
       const phone = form.phone.value.trim();
       const email = form.email.value.trim();
@@ -393,6 +416,14 @@ window.VITS_AJAX_NONCE = <?php echo wp_json_encode( wp_create_nonce( 'vits_enqui
         return;
       }
       error.classList.remove("show");
+      sending = true;
+      submitBtn.disabled = true;
+      form.classList.add("is-sending");
+      const stopSending = () => {
+        sending = false;
+        submitBtn.disabled = false;
+        form.classList.remove("is-sending");
+      };
       const finish = () => {
         document.body.classList.add("is-done");
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -408,6 +439,7 @@ window.VITS_AJAX_NONCE = <?php echo wp_json_encode( wp_create_nonce( 'vits_enqui
         .then((res) => res.json())
         .then((json) => {
           if (!json.success) {
+            stopSending();
             error.textContent = (json.data && json.data.message) || "Could not send the form.";
             error.classList.add("show");
             return;
@@ -415,6 +447,7 @@ window.VITS_AJAX_NONCE = <?php echo wp_json_encode( wp_create_nonce( 'vits_enqui
           finish();
         })
         .catch(() => {
+          stopSending();
           error.textContent = "Could not reach the server. Start the local site and try again.";
           error.classList.add("show");
         });
