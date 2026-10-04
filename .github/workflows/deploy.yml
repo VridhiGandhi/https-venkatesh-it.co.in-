@@ -15,7 +15,7 @@ jobs:
       - name: Synchronize Files with GoDaddy WordPress Hosting Server
         uses: godaddy-wordpress/gd-wordpress-deployer@v1
         with:
-          remote_host: "1288214.us19.myftpupload.com"
+          remote_host: "1288214.us19.ssh.myftpupload.com"
           ssh_user: "git_deployer_a3e8f70bda_1288214"
           ssh_private_key: ${{ secrets.PRIVATE_KEY }}
           deployment_dest: "wp-content/themes/vits"
