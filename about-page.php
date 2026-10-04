@@ -27,11 +27,11 @@ $vits = get_stylesheet_directory_uri();
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    html, body { overflow-x: hidden; }
     body {
       font-family: "DM Sans", sans-serif;
       color: var(--navy);
       background: var(--white);
-      overflow-x: hidden;
     }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
