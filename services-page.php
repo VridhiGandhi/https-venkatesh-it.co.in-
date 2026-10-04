@@ -36,7 +36,8 @@ $vits = get_stylesheet_directory_uri();
     nav.links { display: flex; align-items: center; gap: 42px; }
     nav.links a { display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: var(--navy); height: 51px; padding: 0 26px; border-radius: 999px; background: transparent; position: relative; transition: background .2s ease, color .2s ease; }
     nav.links a:not(.contact-btn):hover::after, nav.links a:not(.contact-btn):active::after, nav.links a:not(.contact-btn).active::after { content: ""; position: absolute; left: 26px; right: 26px; bottom: 12px; height: 1px; background: var(--navy); }
-    nav.links a.contact-btn, nav.links a.contact-btn:hover { background: var(--navy); color: #fff; }
+    nav.links a.contact-btn { background: var(--navy); color: #fff; }
+    nav.links a.contact-btn:hover { background: #fff; color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
     nav.links a.contact-btn:active { background: #fff; color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
     .burger { display: none; flex-direction: column; gap: 5px; padding: 8px; }
     .burger span { width: 22px; height: 2px; background: var(--navy); border-radius: 2px; }

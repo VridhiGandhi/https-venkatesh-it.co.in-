@@ -100,10 +100,14 @@ $vits = get_stylesheet_directory_uri();
       height: 1px;
       background: var(--navy);
     }
-    nav.links a.contact-btn,
-    nav.links a.contact-btn:hover {
+    nav.links a.contact-btn {
       background: var(--navy);
       color: #fff;
+    }
+    nav.links a.contact-btn:hover {
+      background: #fff;
+      color: var(--navy);
+      box-shadow: inset 0 0 0 1px var(--navy);
     }
     nav.links a.contact-btn:active {
       background: #fff;
@@ -625,7 +629,7 @@ $vits = get_stylesheet_directory_uri();
       <nav class="links" id="navLinks">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
         <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="active">About Us</a>
-        <a href="<?php echo esc_url( home_url( '/#offerings' ) ); ?>">Our Offering</a>
+        <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>">Our Offering</a>
         <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="contact-btn">Contact Us</a>
       </nav>
       <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
@@ -746,7 +750,7 @@ $vits = get_stylesheet_directory_uri();
           <p>Our team is here to provide prompt and helpful assistance!</p>
           <div class="footer-actions">
             <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>">About Us</a>
-            <a href="<?php echo esc_url( home_url( '/#offerings' ) ); ?>">Our Offering</a>
+            <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>">Our Offering</a>
             <a class="pill" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Let’s Connect</a>
           </div>
         </div>

@@ -120,10 +120,14 @@ $vits = get_stylesheet_directory_uri();
       height: 1px;
       background: var(--navy);
     }
-    nav.links a.contact-btn,
-    nav.links a.contact-btn:hover {
+    nav.links a.contact-btn {
       background: var(--navy);
       color: #fff;
+    }
+    nav.links a.contact-btn:hover {
+      background: #fff;
+      color: var(--navy);
+      box-shadow: inset 0 0 0 1px var(--navy);
     }
     nav.links a.contact-btn:active {
       background: #fff;
@@ -255,8 +259,8 @@ $vits = get_stylesheet_directory_uri();
     }
     .contact-foot .right { text-align: left; padding-top: 68px; }
     .social { display: flex; gap: 14px; margin-top: 20px; align-items: center; }
-    .social a { width: 40px; height: 40px; display: grid; place-items: center; }
-    .social img { width: 40px; height: 40px; }
+    .social a { width: 40px; height: 40px; display: grid; place-items: center; color: var(--navy); }
+    .social img, .social svg { width: 40px; height: 40px; display: block; }
 
     @media (max-width: 800px) {
       .contact-title { margin-bottom: 80px; }
@@ -287,7 +291,7 @@ $vits = get_stylesheet_directory_uri();
       .contact-foot a.line { margin-top: calc(19 * var(--s)); }
       .contact-foot .right { padding-top: calc(83 * var(--s)); text-align: right; }
       .social { margin-top: calc(25 * var(--s)); gap: calc(31 * var(--s)); margin-left: calc(-4 * var(--s)); }
-      .social a, .social img { width: calc(53 * var(--s)); height: calc(53 * var(--s)); }
+      .social a, .social img, .social svg { width: calc(53 * var(--s)); height: calc(53 * var(--s)); }
       body.is-done .contact-foot { margin-top: calc(270 * var(--s)); }
     }
   </style>
@@ -342,8 +346,8 @@ $vits = get_stylesheet_directory_uri();
           <p><a href="tel:+918100284967">+91 81002 84967</a> / <a href="tel:+919830800406">+91 98308 00406</a></p>
           <a class="line" href="mailto:admin@venkatesh-it.co.in">admin@venkatesh-it.co.in</a>
           <div class="social">
-            <a href="https://www.instagram.com/venkatesh_itsolutions?stkn=YTZ5bTV4NXprcGNl" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="<?php echo esc_url( $vits ); ?>/assets/icon-instagram.svg" alt=""></a>
-            <a href="https://www.facebook.com/share/1D53y5ibPW/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="<?php echo esc_url( $vits ); ?>/assets/icon-facebook.svg" alt=""></a>
+            <a href="https://www.instagram.com/venkatesh_itsolutions?stkn=YTZ5bTV4NXprcGNl" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 53 53" aria-hidden="true"><path fill="currentColor" d="M36.1025 7.16511C38.6586 7.17274 41.1078 8.19151 42.9152 9.99893C44.7226 11.8063 45.7414 14.2555 45.749 16.8116V36.1025C45.7414 38.6586 44.7226 41.1078 42.9152 42.9152C41.1078 44.7226 38.6586 45.7414 36.1025 45.749H16.8116C14.2555 45.7414 11.8063 44.7226 9.99893 42.9152C8.19151 41.1078 7.17274 38.6586 7.16511 36.1025V16.8116C7.17274 14.2555 8.19151 11.8063 9.99893 9.99893C11.8063 8.19151 14.2555 7.17274 16.8116 7.16511H36.1025ZM36.1025 3.30713H16.8116C9.38398 3.30713 3.30713 9.38398 3.30713 16.8116V36.1025C3.30713 43.5301 9.38398 49.607 16.8116 49.607H36.1025C43.5301 49.607 49.607 43.5301 49.607 36.1025V16.8116C49.607 9.38398 43.5301 3.30713 36.1025 3.30713Z"/><path fill="currentColor" d="M38.9963 16.8114C38.424 16.8114 37.8645 16.6417 37.3886 16.3237C36.9127 16.0058 36.5418 15.5538 36.3228 15.0251C36.1038 14.4963 36.0465 13.9145 36.1581 13.3531C36.2698 12.7918 36.5454 12.2762 36.9501 11.8715C37.3548 11.4668 37.8704 11.1912 38.4317 11.0795C38.9931 10.9679 39.5749 11.0252 40.1037 11.2442C40.6324 11.4632 41.0844 11.8341 41.4023 12.31C41.7203 12.7859 41.89 13.3453 41.89 13.9177C41.8908 14.2979 41.8165 14.6746 41.6714 15.026C41.5263 15.3775 41.3132 15.6968 41.0443 15.9657C40.7754 16.2345 40.4561 16.4477 40.1046 16.5928C39.7532 16.7379 39.3765 16.8122 38.9963 16.8114Z"/><path fill="currentColor" d="M26.4573 18.7398C27.9836 18.7398 29.4756 19.1924 30.7446 20.0404C32.0137 20.8883 33.0028 22.0935 33.5869 23.5036C34.1709 24.9137 34.3238 26.4654 34.026 27.9623C33.7282 29.4593 32.9933 30.8343 31.914 31.9135C30.8348 32.9928 29.4597 33.7277 27.9628 34.0255C26.4658 34.3233 24.9142 34.1704 23.5041 33.5864C22.094 33.0023 20.8888 32.0132 20.0409 30.7441C19.1929 29.4751 18.7403 27.9831 18.7403 26.4568C18.7425 24.4108 19.5562 22.4492 21.003 21.0025C22.4497 19.5557 24.4113 18.742 26.4573 18.7398ZM26.4573 14.8818C24.168 14.8818 21.9301 15.5607 20.0266 16.8326C18.1231 18.1044 16.6395 19.9122 15.7634 22.0273C14.8873 24.1423 14.6581 26.4696 15.1047 28.715C15.5514 30.9603 16.6538 33.0227 18.2726 34.6415C19.8913 36.2603 21.9538 37.3627 24.1991 37.8093C26.4445 38.256 28.7718 38.0267 30.8868 37.1507C33.0019 36.2746 34.8096 34.791 36.0815 32.8875C37.3534 30.984 38.0323 28.7461 38.0323 26.4568C38.0323 23.3869 36.8128 20.4428 34.642 18.2721C32.4713 16.1013 29.5272 14.8818 26.4573 14.8818Z"/></svg></a>
+            <a href="https://www.facebook.com/share/1D53y5ibPW/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 53 53" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M49.607 26.5967C49.607 13.8126 39.2412 3.44678 26.4571 3.44678C13.6729 3.44678 3.30713 13.8126 3.30713 26.5967C3.30713 38.151 11.7713 47.7282 22.8399 49.4665V33.2905H16.9604V26.5967H22.8399V21.4965C22.8399 15.6956 26.2969 12.4887 31.5841 12.4887C34.1172 12.4887 36.767 12.9413 36.767 12.9413V18.6389H33.8464C30.9723 18.6389 30.0732 20.4227 30.0732 22.2561V26.5967H36.4932L35.468 33.2905H30.0742V49.4686C41.1428 47.7313 49.607 38.1541 49.607 26.5967Z"/></svg></a>
           </div>
         </div>
         <div class="right">
