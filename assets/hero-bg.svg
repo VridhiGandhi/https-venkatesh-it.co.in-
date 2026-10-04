@@ -1,0 +1,25 @@
+<svg width="1728" height="2046" viewBox="0 0 1728 2046" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1728" height="2046" fill="white"/>
+  <rect width="1728" height="2046" fill="url(#heroPaint)"/>
+  <g transform="translate(0 -183)" filter="url(#heroBlobBlur)">
+    <path d="M861.598 877.362C1133.87 656.249 1849.11 695.768 2168.83 641.435L2339 1747H-260V443C2.99417 747.739 589.322 1098.48 861.598 877.362Z" fill="url(#heroBlobPaint)"/>
+  </g>
+  <defs>
+    <linearGradient id="heroPaint" x1="864" y1="0" x2="864" y2="2046" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="0.466346" stop-color="#667EE5"/>
+      <stop offset="0.586538" stop-color="#FF9D74"/>
+      <stop offset="0.990385" stop-color="white"/>
+    </linearGradient>
+    <linearGradient id="heroBlobPaint" x1="58.7807" y1="623.347" x2="932.386" y2="1823.08" gradientUnits="userSpaceOnUse">
+      <stop offset="0.127208" stop-color="#FF9D74"/>
+      <stop offset="0.379248" stop-color="#2C75CF"/>
+      <stop offset="1" stop-color="#FA5304"/>
+    </linearGradient>
+    <filter id="heroBlobBlur" x="-660" y="-140" width="3399" height="2104" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur"/>
+    </filter>
+  </defs>
+</svg>
